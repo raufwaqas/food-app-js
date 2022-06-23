@@ -15,3 +15,13 @@
   align-items: center;
   gap: 10px;
 }
+
+/**
+* ! style rules for the navbar component
+**/
+
+nav a {
+
+  color: #fff !important;
+  text-decoration: none;
+}
