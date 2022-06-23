@@ -4,7 +4,14 @@
   box-sizing: border-box;
 }
 
+/**
+* !  style rules for form component
+**/
+
 #form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
