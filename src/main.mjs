@@ -1,5 +1,5 @@
 // srp - single responsibility principle
 
-import { formSubmission, inputValue } from './search-bar.mjs'
+import { formSubmission, clearInput, inputValue } from './search-bar.mjs'
 
-formSubmission(inputValue)
+formSubmission(inputValue, clearInput)
