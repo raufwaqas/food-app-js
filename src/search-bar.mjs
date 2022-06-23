@@ -1,15 +1,14 @@
-export let formSubmission = (fn) => {
-  let form = document.getElementById('form')
-  form.addEventListener('submit', (e) => {
-    e.preventDefault()
-    // console.log(e.key);
-    fn()
-  })
-}
+let form = document.getElementById('form');
+let searchBar = document.getElementById('search-bar');
 
-export let inputValue = () => {
-  let searchBar = document.getElementById('search-bar')
-  // console.log(searchBar.target.value);
-  console.log(searchBar.value);
-  searchBar.value = ""
-}
+export let formSubmission = (input, clear) => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log(input());
+    clear();
+  });
+};
+
+export let inputValue = () => searchBar.value;
+
+export let clearInput = () => (searchBar.value = '');
