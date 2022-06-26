@@ -1,4 +1,7 @@
+import { errorLoaderFunction, loaderFunction } from "./loaderFunction.mjs";
+let loader = document.getElementById('loader')
 export let fetchFunction = async (search) => {
+  loaderFunction()
   let base = 'https://api.edamam.com/api/food-database/v2/parser',
     app_id = 'b61825fd',
     app_key = 'a22263fad1918d103e8f6c6b4f8c97c2',
@@ -7,12 +10,21 @@ export let fetchFunction = async (search) => {
 
   return await fetch(api).then(res => {
     if (res.ok) {
-      res.json()
+      console.log(res)
+      return res.json()
     }
     else {
-      throw new Error("custom message here")
+      throw new Error(errorLoaderFunction())
     }
-  }).then(res => console.log(res))
-    .catch(err => console.log('Result Not Found'))
+  }).then(res => {
+    if (res.hints.length !== 0) {
+      loader.innerHTML = `Results for ${search}`
+      console.log(res)
+    }
+    else {
+      throw new Error(errorLoaderFunction())
+    }
+  })
+    .catch(err => err)
 }
 
