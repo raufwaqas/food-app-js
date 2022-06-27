@@ -25,3 +25,31 @@ nav a {
   color: #fff !important;
   text-decoration: none;
 }
+
+/**
+* ! style rules for the card-container
+**/
+
+#card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px
+}
+
+@media (max-width: 991px) {
+  #card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  #card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 568px) {
+  #card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

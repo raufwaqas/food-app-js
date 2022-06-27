@@ -10,7 +10,7 @@ export let fetchFunction = async (search) => {
 
   return await fetch(api).then(res => {
     if (res.ok) {
-      console.log(res)
+      // console.log(res)
       return res.json()
     }
     else {
@@ -19,7 +19,8 @@ export let fetchFunction = async (search) => {
   }).then(res => {
     if (res.hints.length !== 0) {
       loader.innerHTML = `Results for ${search}`
-      console.log(res)
+      // console.log(res)
+      return res
     }
     else {
       throw new Error(errorLoaderFunction())
@@ -27,4 +28,3 @@ export let fetchFunction = async (search) => {
   })
     .catch(err => err)
 }
-

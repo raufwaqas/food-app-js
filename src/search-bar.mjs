@@ -1,10 +1,14 @@
+import { cardComponents } from './cardComponent.mjs'
+
 let form = document.getElementById('form');
 let searchBar = document.getElementById('search-bar');
 
-export let formSubmission = (input,fetchFn, clear) => {
-  form.addEventListener('submit', (e) => {
+export let formSubmission = (input, fetchFn, clear) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    fetchFn(input());
+    let data = await fetchFn(input());
+    // console.log(data)  
+    cardComponents(data)
     clear();
   });
 };
